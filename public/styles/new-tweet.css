@@ -1,0 +1,70 @@
+.new-tweet {
+  width: 100%;
+}
+
+.tweet-border {
+  border: 5px solid black;
+}
+
+.tweet-border:hover {
+  box-shadow: 5px 5px 5px 0px rgb(87, 58, 192);
+  font-weight: bold;
+}
+
+textarea {
+  width: 100%;
+  border-top-style: none;
+  border-left-style: none;
+  border-right-style: none;
+  background-color: transparent;
+  border-color: black;
+  border-width: 5px;
+  resize: none;
+  font-weight: bold;
+  margin-bottom: 10px
+}
+
+.counter {
+  float: right;
+}
+
+section {
+  padding: 1em;
+}
+
+.switch {
+  border: none;
+  background-color: navy;
+  color: white;
+  font-family: Bungee;
+  border-radius: 10%;
+}
+
+.tweet-header {
+  line-height: 50px;
+  width: 100%;
+}
+
+.tweet-avatar {
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+}
+
+.tweeter-name {
+  position: absolute;
+}
+
+.tweeter-handle {
+  position: absolute;
+  right: 0;
+  color: transparent;
+}
+
+section:hover > div > .tweeter-handle {
+  color: rgb(87, 58, 192);
+}
+
+.post-date {
+  font-size: 0.75em;
+}

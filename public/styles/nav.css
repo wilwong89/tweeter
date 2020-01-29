@@ -1,0 +1,25 @@
+.nav-bar {
+  position: fixed;
+  width: 100%;
+  height: 120px;
+  z-index: 99999;
+  color: #FFFFFF;
+  background-color: #4056A1;
+  line-height: 120px;
+  top: 0px;
+  right: 0px;
+}
+
+nav {
+  font-family: Bungee;
+}
+
+.nav-left {
+  margin-left: 1.5em;
+  float: left; 
+}
+
+.nav-right {
+  float: right; 
+  margin-right: 1.5em;
+}

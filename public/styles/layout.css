@@ -8,6 +8,7 @@ html {
 }
 *, *:before, *:after {
   box-sizing: inherit;
+  outline: none;
 }
 
 /*
@@ -16,10 +17,69 @@ html {
 
 body {
   color: #545149;
-  background-color: #f4f1ec;
+  background-color: lightgray;
   font-size: 24px;
 }
 
+.container {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: lightgray;
+}
+
+.fwb {
+  font-weight: bold;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.mlr-05 {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+
+.mlr-15 {
+  margin-left: 1.5em;
+  margin-right: 1.5em;
+}
+
+.mtb-1_5 {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.mt-1 {
+  margin-top: 1em;
+}
+
+.mt-1_5 {
+  margin-top: 1.5em;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.posA {
+  position: absolute;
+}
+
+.posR {
+  position: relative;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
