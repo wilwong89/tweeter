@@ -25,9 +25,14 @@
     <nav class="nav-bar">
       <span class="nav-left fwb pointer">TWEETER</span>
       <span class="nav-right pointer">
-        <span class="fwb">Write</span>
+        <span class="fwb">Write&nbsp;</span>
         <span>a new tweet</span>
+        <div class="pointer stage">
+          <span class="chevron bottom bounce-1"></span>
+          <span class="chevron bottom bounce-1"></span>
+        </div>
       </span>
+      
     </nav>
 
     <header>
@@ -40,8 +45,8 @@
       </div>
     </header>
     <!-- Page-specific (main) content here -->
-    <main class="container input-container">
-      <section class="new-tweet w-100">
+    <main class="container">
+      <section class="new-tweet w-100 input-container">
         <h2 class="">Compose Tweet</h2>
         <form class="form" action="/tweets/" method="POST">
           <textarea name="text" class="tweet-input fwn actual-input" placeholder="What are you humming about?"></textarea>

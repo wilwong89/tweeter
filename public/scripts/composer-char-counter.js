@@ -14,7 +14,7 @@ $(document).ready(function() {
   }
 
   $(".nav-right").click(function(event){
-    $(".input-container").slideToggle(400)
+    $(".new-tweet").slideToggle(400)
   })
   
   $(".tweet-input").on('input', calcLength)

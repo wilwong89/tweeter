@@ -2,6 +2,12 @@
   width: 100%;
 }
 
+.error-container {
+  width: 100%;
+  border: 5px solid red;
+  color: red;
+}
+
 .tweet-border {
   border: 5px solid black;
 }

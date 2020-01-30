@@ -104,9 +104,8 @@ const createTweetElement = function(tweet) {
   
   return stringTemplate;
 }
-console.log("client.js called") 
 
-let getSelfTweet = ""
+let getSelfTweet = "";
 
 $(document).ready(function(){
   loadTweets();
