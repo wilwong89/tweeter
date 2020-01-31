@@ -1,53 +1,55 @@
 const data = [
   {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
+    user: {
+      name: "Newton",
+      avatars: "https://i.imgur.com/73hZDYK.png",
+      handle: "@SirIsaac"
     },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
+    content: {
+      text:
+        "If I have seen further it is by standing on the shoulders of giants"
     },
-    "created_at": 1461116232227
+    created_at: 1461116232227
   },
   {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
+    user: {
+      name: "Descartes",
+      avatars: "https://i.imgur.com/nlhLi3I.png",
+      handle: "@rd"
     },
-    "created_at": 1461113959088
+    content: {
+      text: "Je pense , donc je suis"
+    },
+    created_at: 1461113959088
   }
 ];
 const url = "/tweets";
 const currentUser = {
-  "user": {
-    "name": "Wilson Wong",
-    "avatars": "https://i.imgur.com/RaiowCP.jpg",
-    "handle": "@FakeTweet" },
-  "content": {
-    "text": ""
+  user: {
+    name: "Wilson Wong",
+    avatars: "https://i.imgur.com/RaiowCP.jpg",
+    handle: "@FakeTweet"
   },
-  "created_at": ""
+  content: {
+    text: ""
+  },
+  created_at: ""
 };
 
 const tweetValidation = function(textInput) {
   // Input validation, returns true or false given a text string.
   if (!textInput) {
-    $('.error-container').text("There is no text in tweet.");
-    $('.error-container').slideDown();
+    $(".error-container").text("There is no text in tweet.");
+    $(".error-container").slideDown();
     return false;
   } else if (textInput.length > 140) {
-    $('.error-container').text("This tweet is longer than 140 characters.");
-    $('.error-container').slideDown();
+    $(".error-container").text("This tweet is longer than 140 characters.");
+    $(".error-container").slideDown();
     return false;
   }
 
-  $('.error-container').text("");
-  $('.error-container').slideUp();
+  $(".error-container").text("");
+  $(".error-container").slideUp();
   return true;
 };
 
@@ -83,12 +85,11 @@ const renderTweets = function(tweets, currentTweet) {
   for (let tweet of tweets) {
     $(".tweet-container").prepend(createTweetElement(tweet));
   }
-  
 };
 
-const escape =  function(str) {
+const escape = function(str) {
   // Text filter for templates
-  let div = document.createElement('div');
+  let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 };
@@ -105,11 +106,13 @@ const createTweetElement = function(tweet) {
         <span class="tweeter-handle">${escape(tweetData.user.handle)}</spa>
       </div>
       <div class="mt-1_5">
-        <textarea maxlength="" id="tweet-template-text" disabled class="tweet-input fwn" name="text">${escape(tweetData.content.text)}</textarea>
+        <textarea maxlength="" id="tweet-template-text" disabled class="tweet-input fwn" name="text">${escape(
+          tweetData.content.text
+        )}</textarea>
         <span class="post-date">${new Date(tweetData.created_at)}</span>
       </div>
     </section>`;
-  
+
   return stringTemplate;
 };
 
@@ -117,8 +120,23 @@ const createTweetElement = function(tweet) {
 $(document).ready(function() {
   loadTweets();
 
+  $(window).scroll(function() {
+    if ($(this).scrollTop() >= 200) {
+      $(".nav-right").css("display", "none");
+    } else {
+      $(".nav-right").css("display", "flex");
+    }
+  });
+
+  // Dom manipulation to toggle view of tweet input
+  $(".nav-right").click(function() {
+    $(".new-tweet").slideToggle(400);
+    $(".error-container").slideUp(400);
+    $(".actual-input").focus();
+  });
+
   // Section below runs when form is submitted.
-  $("form").on('submit', function(event) {
+  $("form").on("submit", function(event) {
     event.preventDefault();
     let form = $(this);
     let textInput = $(".actual-input").val();
@@ -140,5 +158,4 @@ $(document).ready(function() {
       }
     });
   });
-  
 });
