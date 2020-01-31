@@ -3,7 +3,7 @@
   <head>
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
-
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
     <!-- External CSS -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,700,700i&display=swap" rel="stylesheet">
@@ -45,20 +45,22 @@
       </div>
     </header>
     <!-- Page-specific (main) content here -->
-    <main class="container">
-      <section class="error-container">
-        
-      </section>
-      <section class="new-tweet w-100 input-container">
-        <h2 class="">Compose Tweet</h2>
-        <form class="form" action="/tweets/" method="POST">
-          <textarea name="text" class="tweet-input fwn actual-input" placeholder="What are you humming about?"></textarea>
-          <input type="submit" class="fwb switch pointer" value="Tweet">
-          <span class="counter fwb" value=""></span>
-        </div>
-      </section>
-    </main>
-    <main class="container tweet-container">
+    <main class="content">
+      <main class="container">
+        <section class="error-container">
+          
+        </section>
+        <section class="new-tweet w-100 input-container">
+          <h2 class="">Compose Tweet</h2>
+          <form class="form" action="/tweets/" method="POST">
+            <textarea name="text" class="tweet-input fwn actual-input" placeholder="What are you humming about?"></textarea>
+            <input type="submit" class="fwb switch pointer" value="Tweet">
+            <span class="counter fwb" value=""></span>
+          </div>
+        </section>
+      </main>
+      <main class="container tweet-container">
+      </main>
     </main>
   </body>
 </html>

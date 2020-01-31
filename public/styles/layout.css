@@ -84,6 +84,11 @@ body {
 .fr {
   float: right;
 }
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
+
+@media (min-width: 768px) {
+  .content {
+    margin-top: 126px;
+    width: 66.7%;
+    float: right
+  }
+}
