@@ -10,7 +10,7 @@ $(document).ready(function() {
   });
   
   // Dom manipulation to controll counter css
-  $(".tweet-input").on('input', function {
+  $(".tweet-input").on('input', function() {
     $(".counter").text(maxLength - $(".tweet-input").val().length);
 
     if ($(".tweet-input").val().length > maxLength) {
