@@ -6,6 +6,7 @@
   width: 100%;
   border: 5px solid red;
   color: red;
+  display: none;
 }
 
 .tweet-border {

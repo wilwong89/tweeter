@@ -35,33 +35,40 @@ const currentUser = {
 }
 
 const tweetValidation = function (textInput) {
-  // Input validation
+  // Input validation, returns true or false given a text string.
   if (!textInput) {
-    
+    $('.error-container').text("There is no text in tweet.");
+    $('.error-container').slideDown();
     return false;
   } else if (textInput.length > 140) {
-    
+    $('.error-container').text("This tweet is longer than 140 characters.");
+    $('.error-container').slideDown();
     return false;
   };
 
+  $('.error-container').text("");
+  $('.error-container').slideUp();
   return true;
 }
 
 const addSelfTweet = function (inputText) {
+  // Creates a psuedo tweet object given an input string
   currentUser.content.text = inputText;
   currentUser.created_at = new Date();
-
 
   return currentUser;
 }
 
 const loadTweets = function (selfTweet) {
+  // First empties all tweets in UI, then repopulates US with tweet elements
+  // If Given a tweet object, adds it to the bottoms of tweets to post (for adding own tweet)
   $(".tweet-container").empty()
   $.ajax({
     type: "GET",
     url: url,
     success: function(tweetsArray) {
       if (selfTweet) {
+        tweetsArray.pop();
         tweetsArray.push(selfTweet)
       }
       renderTweets(tweetsArray);
@@ -80,13 +87,14 @@ const renderTweets = function(tweets, currentTweet) {
 }
 
 const escape =  function(str) {
+  // Text filter for templates
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 }
 
 const createTweetElement = function(tweet) {
-
+  // Given tweet data object, returns HTML text element to be added to UI.
   let tweetData = tweet;
 
   let stringTemplate = `
@@ -98,21 +106,19 @@ const createTweetElement = function(tweet) {
       </div>
       <div class="mt-1_5">
         <textarea maxlength="" id="tweet-template-text" disabled class="tweet-input fwn" name="text">${escape(tweetData.content.text)}</textarea>
-        <span class="post-date">${new Date(escape(tweetData.created_at))}</span>
+        <span class="post-date">${new Date(tweetData.created_at)}</span>
       </div>
     </section>`
   
   return stringTemplate;
 }
 
-let getSelfTweet = "";
-
+// Javascript to run when document is loaded.
 $(document).ready(function(){
   loadTweets();
-  getSelfTweet = $(".actual-input");
 
+  // Section below runs when form is submitted.
   $("form").on('submit', function (event) {
-    
     event.preventDefault();
     var form = $(this);
     var textInput = $(".actual-input").val();
@@ -127,7 +133,7 @@ $(document).ready(function(){
         console.log("success")
         loadTweets(addSelfTweet(textInput));
         $(".counter").text("140");
-        //addSelfTweet(textInput);
+        $(".new-tweet").slideUp(400)
       },
       error: function(err) {
         console.log("error",)

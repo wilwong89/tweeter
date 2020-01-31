@@ -1,9 +1,16 @@
 $(document).ready(function() {
   var maxLength = 140;
-  var tweetTemplate = $("#tweet-template").html();
   $(".counter").text(maxLength)
 
-  function calcLength() {
+  // Dom manipulation to toggle view of tweet input
+  $(".nav-right").click(function(event){
+    $(".new-tweet").slideToggle(400)
+    $(".error-container").slideUp(400)
+    $(".actual-input").focus()
+  })
+  
+  // Dom manipulation to controll counter css 
+  $(".tweet-input").on('input', function calcLength() {
     $(".counter").text(maxLength - $(".tweet-input").val().length);
 
     if ($(".tweet-input").val().length > maxLength) {
@@ -11,11 +18,5 @@ $(document).ready(function() {
     } else {
       $(".counter").css("color","black")
     }
-  }
-
-  $(".nav-right").click(function(event){
-    $(".new-tweet").slideToggle(400)
   })
-  
-  $(".tweet-input").on('input', calcLength)
 });
